@@ -4,17 +4,30 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GuessMelody_
 {
-    public partial class Form1 : Form
+    public partial class fMain : Form
     {
-        public Form1()
+        fSettings settings = new fSettings();
+
+        public fMain()
         {
             InitializeComponent();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            settings.ShowDialog();
         }
     }
 }
