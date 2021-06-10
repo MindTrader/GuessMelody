@@ -32,7 +32,15 @@ namespace GuessMelody_
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            game.ShowDialog();
+            if (GuessMelody.songs.Count == 0)
+                MessageBox.Show("Не настроена папка с музыкой\n\nПожалуйста, добавьте музыку в настройках и запустите игру заново");
+            else
+                game.ShowDialog();
+        }
+
+        private void fMain_Load(object sender, EventArgs e)
+        {
+            GuessMelody.ReadParams();
         }
     }
 }

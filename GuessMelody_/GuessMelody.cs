@@ -11,21 +11,29 @@ namespace GuessMelody_
     static class GuessMelody
     {
         public static List<string> songs = new List<string>();
-        public static int gameDuration = 0;
-        public static int songDuration = 0;
-        public static string lastFolder = string.Empty;
+        public static int gameDuration;
+        public static int songDuration;
+        public static string lastFolder;
         public static bool randomStart = false;
         public static bool scanInnerDirectories = false;
+
+        public static string player1AnswerKey;
+        public static string player2AnswerKey;
+        public static string player1Name;
+        public static string player2Name;
 
         const string regKeyName = "Software\\MyCompanyName\\GuessMelody";
 
 
         public static void ReadMusic()
         {
-            string[] musicFiles = Directory.GetFiles(lastFolder, "*.mp3", scanInnerDirectories ? System.IO.SearchOption.AllDirectories : System.IO.SearchOption.TopDirectoryOnly);
-
             songs.Clear();
-            songs.AddRange(musicFiles);
+
+            if (!string.IsNullOrEmpty(lastFolder))
+            {
+                string[] musicFiles = Directory.GetFiles(lastFolder, "*.mp3", scanInnerDirectories ? System.IO.SearchOption.AllDirectories : System.IO.SearchOption.TopDirectoryOnly);
+                songs.AddRange(musicFiles);
+            }
         }
 
         public static void WriteParams()
@@ -43,6 +51,11 @@ namespace GuessMelody_
                 rk.SetValue("GameDuration", gameDuration);
                 rk.SetValue("SongDuration", songDuration);
                 rk.SetValue("ScanInnerDirectories", scanInnerDirectories);
+                rk.SetValue("Player1Name", player1Name);
+                rk.SetValue("Player2Name", player2Name);
+                rk.SetValue("Player1AnswerKey", player1AnswerKey);
+                rk.SetValue("Player2AnswerKey", player2AnswerKey);
+
             }
             finally
             {
@@ -62,10 +75,18 @@ namespace GuessMelody_
                     return;
 
                 lastFolder = (string)rk.GetValue("LastFolder");
-                randomStart = (bool)rk.GetValue("RandomStart");
+                randomStart = Convert.ToBoolean(rk.GetValue("RandomStart"));
                 gameDuration = (int)rk.GetValue("GameDuration");
                 songDuration = (int)rk.GetValue("SongDuration");
-                scanInnerDirectories = (bool)rk.GetValue("ScanInnerDirectories");
+                scanInnerDirectories = Convert.ToBoolean(rk.GetValue("ScanInnerDirectories"));
+                player1Name = (string)rk.GetValue("Player1Name") ?? "Игрок 1";
+                player2Name = (string)rk.GetValue("Player2Name") ?? "Игрок 2";
+                player1AnswerKey = (string)rk.GetValue("Player1AnswerKey") ?? "A";
+                player2AnswerKey = (string)rk.GetValue("Player2AnswerKey") ?? "L";
+
+
+
+                ReadMusic();
             }
             finally
             {

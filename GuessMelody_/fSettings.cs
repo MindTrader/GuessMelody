@@ -27,28 +27,63 @@ namespace GuessMelody_
 
                 lbSongs.Items.Clear();
                 lbSongs.Items.AddRange(musicList);
+
+                GuessMelody.lastFolder = fbd.SelectedPath;
             }
         }
 
         private void bSave_Click(object sender, EventArgs e)
         {
-            //            public static List<string> songs = new List<string>();
-            //public static int gameDuration = 0;
-            //public static int songDuration = 0;
-            //public static string lastFolder = string.Empty;
-            //public static bool randomStart = false;
-            //public static bool scanInnerDirectories = false;
+            GuessMelody.gameDuration = int.Parse(cbGameDuration.Text);
+            GuessMelody.songDuration = int.Parse(cbSongDuration.Text);
+
+            GuessMelody.player1Name = tbPlayer1.Text;
+            GuessMelody.player2Name = tbPlayer2.Text;
+            GuessMelody.player1AnswerKey = cbKeyPlayer1.Text;
+            GuessMelody.player2AnswerKey = cbKeyPlayer2.Text;
+
+            GuessMelody.randomStart = cbRandomStart.Checked;
+            GuessMelody.scanInnerDirectories = cbInnerFolders.Checked;
 
             GuessMelody.songs.Clear();
             GuessMelody.songs.AddRange(lbSongs.Items.Cast<string>());
 
             GuessMelody.WriteParams();
+
             this.Hide();
         }
 
         private void bCancel_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void fSettings_Load(object sender, EventArgs e)
+        {
+            SetParamsPage();
+        }
+
+        private void bResetFolder_Click(object sender, EventArgs e)
+        {
+            GuessMelody.lastFolder = "";
+            lbSongs.Items.Clear();
+        }
+
+        private void SetParamsPage()
+        {
+            cbGameDuration.Text = Convert.ToString(GuessMelody.gameDuration);
+            cbSongDuration.Text = Convert.ToString(GuessMelody.songDuration);
+
+            cbKeyPlayer1.Text = GuessMelody.player1AnswerKey;
+            cbKeyPlayer2.Text = GuessMelody.player2AnswerKey;
+            tbPlayer1.Text = GuessMelody.player1Name;
+            tbPlayer2.Text = GuessMelody.player2Name;
+
+            cbRandomStart.Checked = GuessMelody.randomStart;
+            cbInnerFolders.Checked = GuessMelody.scanInnerDirectories;
+
+            lbSongs.Items.Clear();
+            lbSongs.Items.AddRange(GuessMelody.songs.ToArray());
         }
     }
 }
