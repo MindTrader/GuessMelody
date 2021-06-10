@@ -13,6 +13,7 @@ namespace GuessMelody_
     public partial class fGame : Form
     {
         Random random = new Random();
+        int songDuration;
         public fGame()
         {
             InitializeComponent();
@@ -47,6 +48,8 @@ namespace GuessMelody_
 
             lbPlayer1.Text = GuessMelody.player1Name;
             lbPlayer2.Text = GuessMelody.player2Name;
+
+            lbSongDuration.Text = GuessMelody.songDuration.ToString();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -54,7 +57,13 @@ namespace GuessMelody_
             if (pbGameDuration.Value == pbGameDuration.Maximum)
                 StopGame();
             else
+            {
                 pbGameDuration.Value++;
+                songDuration--;
+                lbSongDuration.Text = songDuration.ToString();
+            }
+            if (songDuration == 0)
+                MakeMusic();
         }
 
         private void MakeMusic()
@@ -67,6 +76,8 @@ namespace GuessMelody_
             }
             else
             {
+                songDuration = GuessMelody.songDuration;
+
                 timer1.Start();
 
                 int n = random.Next(0, GuessMelody.songs.Count);
@@ -74,6 +85,7 @@ namespace GuessMelody_
                 GuessMelody.songs.RemoveAt(n);
 
                 lSongsRemains.Text = "" + GuessMelody.songs.Count;
+                lbSongDuration.Text = "" + GuessMelody.songDuration;
             }
         }
 
@@ -97,10 +109,17 @@ namespace GuessMelody_
 
         private void fGame_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player1AnswerKey))
-                SetPoints(GuessMelody.player1Name, lPlayer1Points);
-            else if (e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player2AnswerKey))
-                SetPoints(GuessMelody.player2Name, lPlayer2Points);
+            try
+            {
+                if (e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player1AnswerKey))
+                    SetPoints(GuessMelody.player1Name, lPlayer1Points);
+                else if (e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player2AnswerKey))
+                    SetPoints(GuessMelody.player2Name, lPlayer2Points);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка настройки горячих клавиш. Измените значение в настройках и повторите. \n\n" + ex.Message);
+            }
         }
 
         private void SetPoints(string playerName, Label points)

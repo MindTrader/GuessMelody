@@ -41,6 +41,7 @@
             this.lSongsRemains = new System.Windows.Forms.Label();
             this.pbGameDuration = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lbSongDuration = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,6 +158,16 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // lbSongDuration
+            // 
+            this.lbSongDuration.AutoSize = true;
+            this.lbSongDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbSongDuration.Location = new System.Drawing.Point(475, 198);
+            this.lbSongDuration.Name = "lbSongDuration";
+            this.lbSongDuration.Size = new System.Drawing.Size(31, 33);
+            this.lbSongDuration.TabIndex = 11;
+            this.lbSongDuration.Text = "0";
+            // 
             // fGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +175,7 @@
             this.BackgroundImage = global::GuessMelody_.Properties.Resources._0f1872ae8eef2e9e06c32d0e30277ac2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(975, 595);
+            this.Controls.Add(this.lbSongDuration);
             this.Controls.Add(this.pbGameDuration);
             this.Controls.Add(this.lSongsRemains);
             this.Controls.Add(this.bContinue);
@@ -201,5 +213,6 @@
         private System.Windows.Forms.Label lSongsRemains;
         private System.Windows.Forms.ProgressBar pbGameDuration;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lbSongDuration;
     }
 }
