@@ -55,7 +55,10 @@ namespace GuessMelody_
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (pbGameDuration.Value == pbGameDuration.Maximum)
+            {
                 StopGame();
+                MessageBox.Show("Время вышло. Игра завершена");
+            }
             else
             {
                 pbGameDuration.Value++;

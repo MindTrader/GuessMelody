@@ -109,13 +109,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="img\white-abstract-background_23-2148810113.jpg" />
+    <None Include="Resources\white-abstract-background_23-2148810113.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="img\zelenyi-fon-tekstura-abstract-background-green-color.jpg" />
+    <None Include="Resources\zelenyi-fon-tekstura-abstract-background-green-color.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="img\0f1872ae8eef2e9e06c32d0e30277ac2.jpg" />
+    <None Include="Resources\0f1872ae8eef2e9e06c32d0e30277ac2.jpg" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxWMPLib">
@@ -135,6 +135,11 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Crash.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

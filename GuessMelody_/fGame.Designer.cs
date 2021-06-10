@@ -186,8 +186,10 @@
             this.Controls.Add(this.lbPlayer1);
             this.Controls.Add(this.bPause);
             this.Controls.Add(this.WMP);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "fGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Игра";
