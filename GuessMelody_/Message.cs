@@ -14,7 +14,7 @@ namespace GuessMelody_
 {
     public partial class fMessage : Form
     {
-        int answerTime = 1;
+        int answerTime = 3;
         public fMessage(string playerName)
         {
             this.Text = playerName;

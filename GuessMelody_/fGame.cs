@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace GuessMelody_
 {
@@ -14,6 +15,7 @@ namespace GuessMelody_
     {
         Random random = new Random();
         int songDuration;
+        bool player1Answered = false, player2Answered = false;
         public fGame()
         {
             InitializeComponent();
@@ -31,7 +33,8 @@ namespace GuessMelody_
 
         private void bContinue_Click(object sender, EventArgs e)
         {
-            ContinueGame();
+            if (!string.IsNullOrEmpty(WMP.URL))
+                ContinueGame();
         }
 
         private void bPause_Click(object sender, EventArgs e)
@@ -114,10 +117,33 @@ namespace GuessMelody_
         {
             try
             {
-                if (e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player1AnswerKey))
-                    SetPoints(GuessMelody.player1Name, lPlayer1Points);
-                else if (e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player2AnswerKey))
-                    SetPoints(GuessMelody.player2Name, lPlayer2Points);
+                if (timer1.Enabled)
+                    if (!player1Answered && e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player1AnswerKey))
+                    {
+                        if (GuessMelody.voicePlayerName)
+                        {
+                            SoundPlayer sp = new SoundPlayer("..\\..\\Resources\\firstPlayer.wav");
+                            sp.Play();
+                        }
+                        player1Answered = true;
+                        SetPoints(GuessMelody.player1Name, lPlayer1Points);
+                    }
+                    else if (!player2Answered && e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player2AnswerKey))
+                    {
+                        if (GuessMelody.voicePlayerName)
+                        {
+                            SoundPlayer sp = new SoundPlayer("..\\..\\Resources\\secondPlayer.wav");
+                            sp.Play();
+                        }
+                        player2Answered = true;
+                        SetPoints(GuessMelody.player2Name, lPlayer2Points);
+                    }
+
+                if (player1Answered && player2Answered)
+                {
+                    player1Answered = false;
+                    player2Answered = false;
+                }
             }
             catch (Exception ex)
             {

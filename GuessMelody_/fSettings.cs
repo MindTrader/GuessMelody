@@ -44,6 +44,7 @@ namespace GuessMelody_
 
             GuessMelody.randomStart = cbRandomStart.Checked;
             GuessMelody.scanInnerDirectories = cbInnerFolders.Checked;
+            GuessMelody.voicePlayerName = cbPlayerNameVoice.Checked;
 
             GuessMelody.songs.Clear();
             GuessMelody.songs.AddRange(lbSongs.Items.Cast<string>());

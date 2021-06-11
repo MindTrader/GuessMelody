@@ -47,6 +47,7 @@ namespace GuessMelody_
             this.cbKeyPlayer1 = new System.Windows.Forms.ComboBox();
             this.cbKeyPlayer2 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbPlayerNameVoice = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -91,7 +92,7 @@ namespace GuessMelody_
             // 
             this.cbInnerFolders.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cbInnerFolders.AutoSize = true;
-            this.cbInnerFolders.Location = new System.Drawing.Point(10, 316);
+            this.cbInnerFolders.Location = new System.Drawing.Point(235, 348);
             this.cbInnerFolders.Name = "cbInnerFolders";
             this.cbInnerFolders.Size = new System.Drawing.Size(176, 17);
             this.cbInnerFolders.TabIndex = 3;
@@ -102,7 +103,7 @@ namespace GuessMelody_
             // 
             this.cbRandomStart.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cbRandomStart.AutoSize = true;
-            this.cbRandomStart.Location = new System.Drawing.Point(433, 433);
+            this.cbRandomStart.Location = new System.Drawing.Point(235, 422);
             this.cbRandomStart.Name = "cbRandomStart";
             this.cbRandomStart.Size = new System.Drawing.Size(171, 17);
             this.cbRandomStart.TabIndex = 4;
@@ -255,11 +256,23 @@ namespace GuessMelody_
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Клавиши для ответа";
             // 
+            // cbPlayerNameVoice
+            // 
+            this.cbPlayerNameVoice.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cbPlayerNameVoice.AutoSize = true;
+            this.cbPlayerNameVoice.Location = new System.Drawing.Point(235, 399);
+            this.cbPlayerNameVoice.Name = "cbPlayerNameVoice";
+            this.cbPlayerNameVoice.Size = new System.Drawing.Size(173, 17);
+            this.cbPlayerNameVoice.TabIndex = 12;
+            this.cbPlayerNameVoice.Text = "Называть игрока при ответе";
+            this.cbPlayerNameVoice.UseVisualStyleBackColor = true;
+            // 
             // fSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 486);
+            this.Controls.Add(this.cbPlayerNameVoice);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bCancel);
@@ -303,5 +316,6 @@ namespace GuessMelody_
         private ComboBox cbKeyPlayer1;
         private ComboBox cbKeyPlayer2;
         private GroupBox groupBox2;
+        private CheckBox cbPlayerNameVoice;
     }
 }
