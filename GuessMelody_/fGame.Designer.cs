@@ -64,6 +64,7 @@
             this.bPause.Name = "bPause";
             this.bPause.Size = new System.Drawing.Size(75, 65);
             this.bPause.TabIndex = 1;
+            this.bPause.TabStop = false;
             this.bPause.Text = "Пауза";
             this.bPause.UseVisualStyleBackColor = true;
             this.bPause.Click += new System.EventHandler(this.bPause_Click);
@@ -87,6 +88,7 @@
             this.lPlayer2Points.Size = new System.Drawing.Size(29, 31);
             this.lPlayer2Points.TabIndex = 3;
             this.lPlayer2Points.Text = "0";
+            this.lPlayer2Points.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lPlayerPoints_MouseClick);
             // 
             // lPlayer1Points
             // 
@@ -97,6 +99,7 @@
             this.lPlayer1Points.Size = new System.Drawing.Size(29, 31);
             this.lPlayer1Points.TabIndex = 4;
             this.lPlayer1Points.Text = "0";
+            this.lPlayer1Points.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lPlayerPoints_MouseClick);
             // 
             // lbPlayer2
             // 
@@ -129,6 +132,7 @@
             this.bContinue.Name = "bContinue";
             this.bContinue.Size = new System.Drawing.Size(125, 65);
             this.bContinue.TabIndex = 8;
+            this.bContinue.TabStop = false;
             this.bContinue.Text = "Продолжить";
             this.bContinue.UseVisualStyleBackColor = true;
             this.bContinue.Click += new System.EventHandler(this.bContinue_Click);

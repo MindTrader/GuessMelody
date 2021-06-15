@@ -24,6 +24,8 @@ namespace GuessMelody_
         public static string player1Name;
         public static string player2Name;
 
+        public static string answer;
+
         const string regKeyName = "Software\\MyCompanyName\\GuessMelody";
 
 

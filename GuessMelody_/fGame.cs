@@ -92,6 +92,8 @@ namespace GuessMelody_
 
                 lSongsRemains.Text = "" + GuessMelody.songs.Count;
                 lbSongDuration.Text = "" + GuessMelody.songDuration;
+
+                GuessMelody.answer = System.IO.Path.GetFileNameWithoutExtension(WMP.URL);
             }
         }
 
@@ -160,9 +162,26 @@ namespace GuessMelody_
             {
                 points.Text = (Convert.ToInt32(points.Text) + 1).ToString();
                 MakeMusic();
+
+                player1Answered = false;
+                player2Answered = false;
             }
             else
                 ContinueGame();
+        }
+
+        private void lPlayerPoints_MouseClick(object sender, MouseEventArgs e)
+        {
+            Label lbPlayerPoints = sender as Label;
+            if (lbPlayerPoints != null)
+                if (e.Button == MouseButtons.Left)
+                {
+                    lbPlayerPoints.Text = (Convert.ToInt32(lbPlayerPoints.Text) + 1).ToString();
+                }
+                else if (e.Button == MouseButtons.Right && Convert.ToInt32(lPlayer1Points.Text) > 0)
+                {
+                    lbPlayerPoints.Text = (Convert.ToInt32(lbPlayerPoints.Text) - 1).ToString();
+                }
         }
 
         private void WMP_OpenStateChange(object sender, AxWMPLib._WMPOCXEvents_OpenStateChangeEvent e)

@@ -45,5 +45,13 @@ namespace GuessMelody_
         {
             timer1.Stop();
         }
+
+        private void tbAnswer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Space)
+            {
+                tbAnswer.Text = GuessMelody.answer;
+            }
+        }
     }
 }
