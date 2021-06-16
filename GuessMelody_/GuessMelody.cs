@@ -17,6 +17,7 @@ namespace GuessMelody_
         public static bool randomStart = false;
         public static bool scanInnerDirectories = false;
         public static bool voicePlayerName = false;
+        public static bool instructionWasShown = false;
 
 
         public static string player1AnswerKey;
@@ -55,6 +56,7 @@ namespace GuessMelody_
                 rk.SetValue("GameDuration", gameDuration);
                 rk.SetValue("SongDuration", songDuration);
                 rk.SetValue("ScanInnerDirectories", scanInnerDirectories);
+                rk.SetValue("InstructionWasShown", true);
                 rk.SetValue("VoicePlayerName", voicePlayerName);
                 rk.SetValue("Player1Name", player1Name);
                 rk.SetValue("Player2Name", player2Name);
@@ -84,6 +86,7 @@ namespace GuessMelody_
                 gameDuration = (int)rk.GetValue("GameDuration");
                 songDuration = (int)rk.GetValue("SongDuration");
                 scanInnerDirectories = Convert.ToBoolean(rk.GetValue("ScanInnerDirectories"));
+                instructionWasShown = Convert.ToBoolean(rk.GetValue("InstructionWasShown"));
                 voicePlayerName = Convert.ToBoolean(rk.GetValue("VoicePlayerName"));
                 player1Name = (string)rk.GetValue("Player1Name") ?? "Игрок 1";
                 player2Name = (string)rk.GetValue("Player2Name") ?? "Игрок 2";

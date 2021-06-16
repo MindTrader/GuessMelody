@@ -120,7 +120,7 @@ namespace GuessMelody_
             try
             {
                 if (timer1.Enabled)
-                    if (!player1Answered && e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player1AnswerKey))
+                    if (!player1Answered && e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player1AnswerKey.ToUpperInvariant()))
                     {
                         if (GuessMelody.voicePlayerName)
                         {
@@ -130,7 +130,7 @@ namespace GuessMelody_
                         player1Answered = true;
                         SetPoints(GuessMelody.player1Name, lPlayer1Points);
                     }
-                    else if (!player2Answered && e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player2AnswerKey))
+                    else if (!player2Answered && e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player2AnswerKey.ToUpperInvariant()))
                     {
                         if (GuessMelody.voicePlayerName)
                         {

@@ -15,6 +15,8 @@ namespace GuessMelody_
     {
         fSettings settings = new fSettings();
         fGame game = new fGame();
+        fInstruction faq = new fInstruction();
+
         public fMain()
         {
             InitializeComponent();
@@ -41,6 +43,16 @@ namespace GuessMelody_
         private void fMain_Load(object sender, EventArgs e)
         {
             GuessMelody.ReadParams();
+
+            if (!GuessMelody.instructionWasShown)
+            {
+                faq.ShowDialog();
+            }
+        }
+
+        private void btnInstruction_Click(object sender, EventArgs e)
+        {
+            faq.ShowDialog();
         }
     }
 }
