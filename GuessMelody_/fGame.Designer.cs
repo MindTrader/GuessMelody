@@ -46,6 +46,8 @@
             this.btnPlayer2PointsMore = new System.Windows.Forms.Button();
             this.btnPlayer2PointsLess = new System.Windows.Forms.Button();
             this.tbSongDuration = new System.Windows.Forms.TextBox();
+            this.tbPlayer1Ready = new System.Windows.Forms.TextBox();
+            this.tbPlayer2Ready = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
             this.SuspendLayout();
             // 
@@ -235,6 +237,31 @@
             this.tbSongDuration.Text = "0";
             this.tbSongDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // tbPlayer1Ready
+            // 
+            this.tbPlayer1Ready.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.tbPlayer1Ready.Enabled = false;
+            this.tbPlayer1Ready.ForeColor = System.Drawing.Color.Lime;
+            this.tbPlayer1Ready.Location = new System.Drawing.Point(114, 46);
+            this.tbPlayer1Ready.Multiline = true;
+            this.tbPlayer1Ready.Name = "tbPlayer1Ready";
+            this.tbPlayer1Ready.ReadOnly = true;
+            this.tbPlayer1Ready.Size = new System.Drawing.Size(36, 36);
+            this.tbPlayer1Ready.TabIndex = 24;
+            this.tbPlayer1Ready.TabStop = false;
+            // 
+            // tbPlayer2Ready
+            // 
+            this.tbPlayer2Ready.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.tbPlayer2Ready.Enabled = false;
+            this.tbPlayer2Ready.Location = new System.Drawing.Point(835, 46);
+            this.tbPlayer2Ready.Multiline = true;
+            this.tbPlayer2Ready.Name = "tbPlayer2Ready";
+            this.tbPlayer2Ready.ReadOnly = true;
+            this.tbPlayer2Ready.Size = new System.Drawing.Size(36, 36);
+            this.tbPlayer2Ready.TabIndex = 25;
+            this.tbPlayer2Ready.TabStop = false;
+            // 
             // fGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,6 +269,8 @@
             this.BackgroundImage = global::GuessMelody_.Properties.Resources._0f1872ae8eef2e9e06c32d0e30277ac2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(975, 595);
+            this.Controls.Add(this.tbPlayer2Ready);
+            this.Controls.Add(this.tbPlayer1Ready);
             this.Controls.Add(this.tbSongDuration);
             this.Controls.Add(this.btnPlayer2PointsLess);
             this.Controls.Add(this.btnPlayer2PointsMore);
@@ -291,5 +320,7 @@
         private System.Windows.Forms.Button btnPlayer2PointsMore;
         private System.Windows.Forms.Button btnPlayer2PointsLess;
         private System.Windows.Forms.TextBox tbSongDuration;
+        private System.Windows.Forms.TextBox tbPlayer1Ready;
+        private System.Windows.Forms.TextBox tbPlayer2Ready;
     }
 }

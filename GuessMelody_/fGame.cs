@@ -137,6 +137,8 @@ namespace GuessMelody_
                                 sp.Play();
                             }
                             player1Answered = true;
+                            tbPlayer1Ready.BackColor = Color.Red;
+
                             SetPoints(GuessMelody.player1Name, tbPlayer1Points);
                         }
                     }
@@ -150,6 +152,7 @@ namespace GuessMelody_
                                 sp.Play();
                             }
                             player2Answered = true;
+                            tbPlayer2Ready.BackColor = Color.Red;
                             SetPoints(GuessMelody.player2Name, tbPlayer2Points);
                         }
                     }
@@ -158,6 +161,8 @@ namespace GuessMelody_
                 {
                     player1Answered = false;
                     player2Answered = false;
+                    tbPlayer1Ready.BackColor = Color.FromArgb(0, 192, 0);
+                    tbPlayer2Ready.BackColor = Color.FromArgb(0, 192, 0);
                 }
             }
             catch (Exception ex)
@@ -202,6 +207,8 @@ namespace GuessMelody_
 
                 player1Answered = false;
                 player2Answered = false;
+                tbPlayer1Ready.BackColor = Color.FromArgb(0, 192, 0);
+                tbPlayer2Ready.BackColor = Color.FromArgb(0, 192, 0);
             }
             else
             {
