@@ -52,7 +52,7 @@ namespace GuessMelody_
             tbPlayer1.Text = GuessMelody.player1Name;
             tbPlayer2.Text = GuessMelody.player2Name;
 
-            lbSongDuration.Text = GuessMelody.songDuration.ToString();
+            tbSongDuration.Text = GuessMelody.songDuration.ToString();
 
             MakeMusic();
         }
@@ -68,7 +68,7 @@ namespace GuessMelody_
             {
                 pbGameDuration.Value++;
                 songDuration--;
-                lbSongDuration.Text = songDuration.ToString();
+                tbSongDuration.Text = songDuration.ToString();
             }
             if (songDuration == 0)
                 MakeMusic();
@@ -93,7 +93,7 @@ namespace GuessMelody_
                 GuessMelody.songs.RemoveAt(n);
 
                 lSongsRemains.Text = "" + GuessMelody.songs.Count;
-                lbSongDuration.Text = "" + GuessMelody.songDuration;
+                tbSongDuration.Text = "" + GuessMelody.songDuration;
 
                 GuessMelody.answer = System.IO.Path.GetFileNameWithoutExtension(WMP.URL);
             }
@@ -180,9 +180,9 @@ namespace GuessMelody_
 
         private void lbPlayerPointsMore_Click(object sender, EventArgs e)
         {
-            Label lbPlayerPoints = sender as Label;
+            Button btnPlayerPoints = sender as Button;
 
-            if (lbPlayerPoints.Name.Contains("Player1"))
+            if (btnPlayerPoints.Name.Contains("Player1"))
                 tbPlayer1Points.Text = (Convert.ToInt32(tbPlayer1Points.Text) + 1).ToString();
             else
                 tbPlayer2Points.Text = (Convert.ToInt32(tbPlayer2Points.Text) + 1).ToString();
@@ -190,9 +190,9 @@ namespace GuessMelody_
 
         private void lbPlayerPointsLess_Click(object sender, EventArgs e)
         {
-            Label lbPlayerPoints = sender as Label;
+            Button btnPlayerPoints = sender as Button;
 
-            if (lbPlayerPoints.Name.Contains("Player1"))
+            if (btnPlayerPoints.Name.Contains("Player1"))
             {
                 if (Convert.ToInt32(tbPlayer1Points.Text) > 0)
                     tbPlayer1Points.Text = (Convert.ToInt32(tbPlayer1Points.Text) - 1).ToString();

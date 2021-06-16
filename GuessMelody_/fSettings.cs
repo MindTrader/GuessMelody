@@ -82,6 +82,7 @@ namespace GuessMelody_
 
             cbRandomStart.Checked = GuessMelody.randomStart;
             cbInnerFolders.Checked = GuessMelody.scanInnerDirectories;
+            cbPlayerNameVoice.Checked = GuessMelody.voicePlayerName;
 
             lbSongs.Items.Clear();
             lbSongs.Items.AddRange(GuessMelody.songs.ToArray());
