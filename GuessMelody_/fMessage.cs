@@ -29,7 +29,7 @@ namespace GuessMelody_
             if (answerTime == 0)
             {
                 timer1.Stop();
-                SoundPlayer sp = new SoundPlayer("..\\..\\Resources\\crash.wav");
+                SoundPlayer sp = new SoundPlayer("Resources\\crash.wav");
                 sp.Play();
             }
 

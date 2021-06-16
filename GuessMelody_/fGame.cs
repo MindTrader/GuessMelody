@@ -133,7 +133,7 @@ namespace GuessMelody_
                         {
                             if (GuessMelody.voicePlayerName)
                             {
-                                SoundPlayer sp = new SoundPlayer("..\\..\\Resources\\firstPlayer.wav");
+                                SoundPlayer sp = new SoundPlayer("Resources\\firstPlayer.wav");
                                 sp.Play();
                             }
                             player1Answered = true;
@@ -148,7 +148,7 @@ namespace GuessMelody_
                         {
                             if (GuessMelody.voicePlayerName)
                             {
-                                SoundPlayer sp = new SoundPlayer("..\\..\\Resources\\secondPlayer.wav");
+                                SoundPlayer sp = new SoundPlayer("Resources\\secondPlayer.wav");
                                 sp.Play();
                             }
                             player2Answered = true;
