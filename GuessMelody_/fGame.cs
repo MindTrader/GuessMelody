@@ -14,8 +14,13 @@ namespace GuessMelody_
     public partial class fGame : Form
     {
         Random random = new Random();
+
         int songDuration;
+        int successfulAnswersPl1 = 0;
+        int successfulAnswersPl2 = 0;
+
         bool player1Answered = false, player2Answered = false;
+
         public fGame()
         {
             InitializeComponent();
@@ -168,14 +173,46 @@ namespace GuessMelody_
             PauseGame();
             if (mes.ShowDialog() == DialogResult.Yes)
             {
-                points.Text = (Convert.ToInt32(points.Text) + 1).ToString();
+                int pointsNum = Convert.ToInt32(points.Text);
+
+                points.Text = (++pointsNum).ToString();
+
+                if (GuessMelody.bonusForAnswers)
+                {
+                    if (playerName == GuessMelody.player1Name)
+                    {
+                        successfulAnswersPl1++;
+                        successfulAnswersPl2 = 0;
+                    }
+                    else
+                    {
+                        successfulAnswersPl2++;
+                        successfulAnswersPl1 = 0;
+                    }
+
+                    if (successfulAnswersPl1 == 3 || successfulAnswersPl2 == 3)
+                    {
+                        points.Text = (pointsNum + 2).ToString();
+
+                        successfulAnswersPl1 = 0;
+                        successfulAnswersPl2 = 0;
+                    }
+                }
+
                 MakeMusic();
 
                 player1Answered = false;
                 player2Answered = false;
             }
             else
+            {
+                if (playerName == GuessMelody.player1Name)
+                    successfulAnswersPl1 = 0;
+                else
+                    successfulAnswersPl2 = 0;
+
                 ContinueGame();
+            }
         }
 
         private void lbPlayerPointsMore_Click(object sender, EventArgs e)

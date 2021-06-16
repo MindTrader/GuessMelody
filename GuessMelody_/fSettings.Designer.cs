@@ -48,6 +48,7 @@ namespace GuessMelody_
             this.cbKeyPlayer2 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbPlayerNameVoice = new System.Windows.Forms.CheckBox();
+            this.cbBonusForAnswers = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -103,7 +104,7 @@ namespace GuessMelody_
             // 
             this.cbRandomStart.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cbRandomStart.AutoSize = true;
-            this.cbRandomStart.Location = new System.Drawing.Point(235, 422);
+            this.cbRandomStart.Location = new System.Drawing.Point(235, 428);
             this.cbRandomStart.Name = "cbRandomStart";
             this.cbRandomStart.Size = new System.Drawing.Size(171, 17);
             this.cbRandomStart.TabIndex = 4;
@@ -260,18 +261,30 @@ namespace GuessMelody_
             // 
             this.cbPlayerNameVoice.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cbPlayerNameVoice.AutoSize = true;
-            this.cbPlayerNameVoice.Location = new System.Drawing.Point(235, 399);
+            this.cbPlayerNameVoice.Location = new System.Drawing.Point(235, 408);
             this.cbPlayerNameVoice.Name = "cbPlayerNameVoice";
             this.cbPlayerNameVoice.Size = new System.Drawing.Size(173, 17);
             this.cbPlayerNameVoice.TabIndex = 12;
             this.cbPlayerNameVoice.Text = "Называть игрока при ответе";
             this.cbPlayerNameVoice.UseVisualStyleBackColor = true;
             // 
+            // cbBonusForAnswers
+            // 
+            this.cbBonusForAnswers.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cbBonusForAnswers.AutoSize = true;
+            this.cbBonusForAnswers.Location = new System.Drawing.Point(235, 388);
+            this.cbBonusForAnswers.Name = "cbBonusForAnswers";
+            this.cbBonusForAnswers.Size = new System.Drawing.Size(156, 17);
+            this.cbBonusForAnswers.TabIndex = 13;
+            this.cbBonusForAnswers.Text = "Бонус за 3 ответа подряд";
+            this.cbBonusForAnswers.UseVisualStyleBackColor = true;
+            // 
             // fSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 486);
+            this.Controls.Add(this.cbBonusForAnswers);
             this.Controls.Add(this.cbPlayerNameVoice);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -317,5 +330,6 @@ namespace GuessMelody_
         private ComboBox cbKeyPlayer2;
         private GroupBox groupBox2;
         private CheckBox cbPlayerNameVoice;
+        private CheckBox cbBonusForAnswers;
     }
 }
