@@ -120,25 +120,31 @@ namespace GuessMelody_
             try
             {
                 if (timer1.Enabled)
-                    if (!player1Answered && e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player1AnswerKey.ToUpperInvariant()))
+                    if (e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player1AnswerKey.ToUpperInvariant()))
                     {
-                        if (GuessMelody.voicePlayerName)
+                        if (!player1Answered)
                         {
-                            SoundPlayer sp = new SoundPlayer("..\\..\\Resources\\firstPlayer.wav");
-                            sp.Play();
+                            if (GuessMelody.voicePlayerName)
+                            {
+                                SoundPlayer sp = new SoundPlayer("..\\..\\Resources\\firstPlayer.wav");
+                                sp.Play();
+                            }
+                            player1Answered = true;
+                            SetPoints(GuessMelody.player1Name, lPlayer1Points);
                         }
-                        player1Answered = true;
-                        SetPoints(GuessMelody.player1Name, lPlayer1Points);
                     }
-                    else if (!player2Answered && e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player2AnswerKey.ToUpperInvariant()))
+                    else if (e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player2AnswerKey.ToUpperInvariant()))
                     {
-                        if (GuessMelody.voicePlayerName)
+                        if (!player2Answered)
                         {
-                            SoundPlayer sp = new SoundPlayer("..\\..\\Resources\\secondPlayer.wav");
-                            sp.Play();
+                            if (GuessMelody.voicePlayerName)
+                            {
+                                SoundPlayer sp = new SoundPlayer("..\\..\\Resources\\secondPlayer.wav");
+                                sp.Play();
+                            }
+                            player2Answered = true;
+                            SetPoints(GuessMelody.player2Name, lPlayer2Points);
                         }
-                        player2Answered = true;
-                        SetPoints(GuessMelody.player2Name, lPlayer2Points);
                     }
 
                 if (player1Answered && player2Answered)
@@ -178,7 +184,7 @@ namespace GuessMelody_
                 {
                     lbPlayerPoints.Text = (Convert.ToInt32(lbPlayerPoints.Text) + 1).ToString();
                 }
-                else if (e.Button == MouseButtons.Right && Convert.ToInt32(lPlayer1Points.Text) > 0)
+                else if (e.Button == MouseButtons.Right && Convert.ToInt32(lbPlayerPoints.Text) > 0)
                 {
                     lbPlayerPoints.Text = (Convert.ToInt32(lbPlayerPoints.Text) - 1).ToString();
                 }
