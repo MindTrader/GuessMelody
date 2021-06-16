@@ -49,10 +49,12 @@ namespace GuessMelody_
             pbGameDuration.Value = 0;
             pbGameDuration.Maximum = GuessMelody.gameDuration;
 
-            lbPlayer1.Text = GuessMelody.player1Name;
-            lbPlayer2.Text = GuessMelody.player2Name;
+            tbPlayer1.Text = GuessMelody.player1Name;
+            tbPlayer2.Text = GuessMelody.player2Name;
 
             lbSongDuration.Text = GuessMelody.songDuration.ToString();
+
+            MakeMusic();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -130,7 +132,7 @@ namespace GuessMelody_
                                 sp.Play();
                             }
                             player1Answered = true;
-                            SetPoints(GuessMelody.player1Name, lPlayer1Points);
+                            SetPoints(GuessMelody.player1Name, tbPlayer1Points);
                         }
                     }
                     else if (e.KeyData == (Keys)Enum.Parse(typeof(Keys), GuessMelody.player2AnswerKey.ToUpperInvariant()))
@@ -143,7 +145,7 @@ namespace GuessMelody_
                                 sp.Play();
                             }
                             player2Answered = true;
-                            SetPoints(GuessMelody.player2Name, lPlayer2Points);
+                            SetPoints(GuessMelody.player2Name, tbPlayer2Points);
                         }
                     }
 
@@ -159,7 +161,7 @@ namespace GuessMelody_
             }
         }
 
-        private void SetPoints(string playerName, Label points)
+        private void SetPoints(string playerName, TextBox points)
         {
             fMessage mes = new fMessage(playerName);
 
@@ -176,18 +178,30 @@ namespace GuessMelody_
                 ContinueGame();
         }
 
-        private void lPlayerPoints_MouseClick(object sender, MouseEventArgs e)
+        private void lbPlayerPointsMore_Click(object sender, EventArgs e)
         {
             Label lbPlayerPoints = sender as Label;
-            if (lbPlayerPoints != null)
-                if (e.Button == MouseButtons.Left)
-                {
-                    lbPlayerPoints.Text = (Convert.ToInt32(lbPlayerPoints.Text) + 1).ToString();
-                }
-                else if (e.Button == MouseButtons.Right && Convert.ToInt32(lbPlayerPoints.Text) > 0)
-                {
-                    lbPlayerPoints.Text = (Convert.ToInt32(lbPlayerPoints.Text) - 1).ToString();
-                }
+
+            if (lbPlayerPoints.Name.Contains("Player1"))
+                tbPlayer1Points.Text = (Convert.ToInt32(tbPlayer1Points.Text) + 1).ToString();
+            else
+                tbPlayer2Points.Text = (Convert.ToInt32(tbPlayer2Points.Text) + 1).ToString();
+        }
+
+        private void lbPlayerPointsLess_Click(object sender, EventArgs e)
+        {
+            Label lbPlayerPoints = sender as Label;
+
+            if (lbPlayerPoints.Name.Contains("Player1"))
+            {
+                if (Convert.ToInt32(tbPlayer1Points.Text) > 0)
+                    tbPlayer1Points.Text = (Convert.ToInt32(tbPlayer1Points.Text) - 1).ToString();
+            }
+            else
+            {
+                if (Convert.ToInt32(tbPlayer2Points.Text) > 0)
+                    tbPlayer2Points.Text = (Convert.ToInt32(tbPlayer2Points.Text) - 1).ToString();
+            }
         }
 
         private void WMP_OpenStateChange(object sender, AxWMPLib._WMPOCXEvents_OpenStateChangeEvent e)

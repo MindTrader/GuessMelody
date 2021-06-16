@@ -32,16 +32,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fGame));
             this.WMP = new AxWMPLib.AxWindowsMediaPlayer();
             this.bPause = new System.Windows.Forms.Button();
-            this.lbPlayer1 = new System.Windows.Forms.Label();
-            this.lPlayer2Points = new System.Windows.Forms.Label();
-            this.lPlayer1Points = new System.Windows.Forms.Label();
-            this.lbPlayer2 = new System.Windows.Forms.Label();
+            this.lbPlayer1PointsMore = new System.Windows.Forms.Label();
             this.bNextSong = new System.Windows.Forms.Button();
             this.bContinue = new System.Windows.Forms.Button();
             this.lSongsRemains = new System.Windows.Forms.Label();
             this.pbGameDuration = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lbSongDuration = new System.Windows.Forms.Label();
+            this.tbPlayer1 = new System.Windows.Forms.TextBox();
+            this.tbPlayer2 = new System.Windows.Forms.TextBox();
+            this.tbPlayer1Points = new System.Windows.Forms.TextBox();
+            this.tbPlayer2Points = new System.Windows.Forms.TextBox();
+            this.lbPlayer1PointsLess = new System.Windows.Forms.Label();
+            this.lbPlayer2PointsMore = new System.Windows.Forms.Label();
+            this.lbPlayer2PointsLess = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,48 +73,16 @@
             this.bPause.UseVisualStyleBackColor = true;
             this.bPause.Click += new System.EventHandler(this.bPause_Click);
             // 
-            // lbPlayer1
+            // lbPlayer1PointsMore
             // 
-            this.lbPlayer1.AutoSize = true;
-            this.lbPlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbPlayer1.Location = new System.Drawing.Point(183, 56);
-            this.lbPlayer1.Name = "lbPlayer1";
-            this.lbPlayer1.Size = new System.Drawing.Size(110, 31);
-            this.lbPlayer1.TabIndex = 2;
-            this.lbPlayer1.Text = "Игрок 1";
-            // 
-            // lPlayer2Points
-            // 
-            this.lPlayer2Points.AutoSize = true;
-            this.lPlayer2Points.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lPlayer2Points.Location = new System.Drawing.Point(724, 105);
-            this.lPlayer2Points.Name = "lPlayer2Points";
-            this.lPlayer2Points.Size = new System.Drawing.Size(29, 31);
-            this.lPlayer2Points.TabIndex = 3;
-            this.lPlayer2Points.Text = "0";
-            this.lPlayer2Points.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lPlayerPoints_MouseClick);
-            // 
-            // lPlayer1Points
-            // 
-            this.lPlayer1Points.AutoSize = true;
-            this.lPlayer1Points.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lPlayer1Points.Location = new System.Drawing.Point(222, 105);
-            this.lPlayer1Points.Name = "lPlayer1Points";
-            this.lPlayer1Points.Size = new System.Drawing.Size(29, 31);
-            this.lPlayer1Points.TabIndex = 4;
-            this.lPlayer1Points.Text = "0";
-            this.lPlayer1Points.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lPlayerPoints_MouseClick);
-            // 
-            // lbPlayer2
-            // 
-            this.lbPlayer2.AutoSize = true;
-            this.lbPlayer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbPlayer2.Location = new System.Drawing.Point(685, 56);
-            this.lbPlayer2.Name = "lbPlayer2";
-            this.lbPlayer2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbPlayer2.Size = new System.Drawing.Size(110, 31);
-            this.lbPlayer2.TabIndex = 5;
-            this.lbPlayer2.Text = "Игрок 2";
+            this.lbPlayer1PointsMore.AutoSize = true;
+            this.lbPlayer1PointsMore.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbPlayer1PointsMore.Location = new System.Drawing.Point(157, 101);
+            this.lbPlayer1PointsMore.Name = "lbPlayer1PointsMore";
+            this.lbPlayer1PointsMore.Size = new System.Drawing.Size(30, 31);
+            this.lbPlayer1PointsMore.TabIndex = 4;
+            this.lbPlayer1PointsMore.Text = "+";
+            this.lbPlayer1PointsMore.Click += new System.EventHandler(this.lbPlayerPointsMore_Click);
             // 
             // bNextSong
             // 
@@ -172,6 +144,85 @@
             this.lbSongDuration.TabIndex = 11;
             this.lbSongDuration.Text = "0";
             // 
+            // tbPlayer1
+            // 
+            this.tbPlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbPlayer1.Location = new System.Drawing.Point(157, 46);
+            this.tbPlayer1.Name = "tbPlayer1";
+            this.tbPlayer1.ReadOnly = true;
+            this.tbPlayer1.Size = new System.Drawing.Size(171, 36);
+            this.tbPlayer1.TabIndex = 12;
+            this.tbPlayer1.Text = "Игрок 1";
+            this.tbPlayer1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbPlayer2
+            // 
+            this.tbPlayer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbPlayer2.Location = new System.Drawing.Point(658, 46);
+            this.tbPlayer2.Name = "tbPlayer2";
+            this.tbPlayer2.ReadOnly = true;
+            this.tbPlayer2.Size = new System.Drawing.Size(171, 36);
+            this.tbPlayer2.TabIndex = 13;
+            this.tbPlayer2.Text = "Игрок 2";
+            this.tbPlayer2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbPlayer1Points
+            // 
+            this.tbPlayer1Points.Enabled = false;
+            this.tbPlayer1Points.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbPlayer1Points.Location = new System.Drawing.Point(208, 97);
+            this.tbPlayer1Points.Name = "tbPlayer1Points";
+            this.tbPlayer1Points.ReadOnly = true;
+            this.tbPlayer1Points.Size = new System.Drawing.Size(75, 40);
+            this.tbPlayer1Points.TabIndex = 14;
+            this.tbPlayer1Points.Text = "0";
+            this.tbPlayer1Points.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbPlayer2Points
+            // 
+            this.tbPlayer2Points.Enabled = false;
+            this.tbPlayer2Points.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbPlayer2Points.Location = new System.Drawing.Point(709, 97);
+            this.tbPlayer2Points.Name = "tbPlayer2Points";
+            this.tbPlayer2Points.ReadOnly = true;
+            this.tbPlayer2Points.Size = new System.Drawing.Size(75, 40);
+            this.tbPlayer2Points.TabIndex = 15;
+            this.tbPlayer2Points.Text = "0";
+            this.tbPlayer2Points.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lbPlayer1PointsLess
+            // 
+            this.lbPlayer1PointsLess.AutoSize = true;
+            this.lbPlayer1PointsLess.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbPlayer1PointsLess.Location = new System.Drawing.Point(305, 101);
+            this.lbPlayer1PointsLess.Name = "lbPlayer1PointsLess";
+            this.lbPlayer1PointsLess.Size = new System.Drawing.Size(23, 31);
+            this.lbPlayer1PointsLess.TabIndex = 16;
+            this.lbPlayer1PointsLess.Text = "-";
+            this.lbPlayer1PointsLess.Click += new System.EventHandler(this.lbPlayerPointsLess_Click);
+            // 
+            // lbPlayer2PointsMore
+            // 
+            this.lbPlayer2PointsMore.AutoSize = true;
+            this.lbPlayer2PointsMore.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbPlayer2PointsMore.Location = new System.Drawing.Point(658, 101);
+            this.lbPlayer2PointsMore.Name = "lbPlayer2PointsMore";
+            this.lbPlayer2PointsMore.Size = new System.Drawing.Size(30, 31);
+            this.lbPlayer2PointsMore.TabIndex = 17;
+            this.lbPlayer2PointsMore.Text = "+";
+            this.lbPlayer2PointsMore.Click += new System.EventHandler(this.lbPlayerPointsMore_Click);
+            // 
+            // lbPlayer2PointsLess
+            // 
+            this.lbPlayer2PointsLess.AutoSize = true;
+            this.lbPlayer2PointsLess.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbPlayer2PointsLess.Location = new System.Drawing.Point(806, 101);
+            this.lbPlayer2PointsLess.Name = "lbPlayer2PointsLess";
+            this.lbPlayer2PointsLess.Size = new System.Drawing.Size(23, 31);
+            this.lbPlayer2PointsLess.TabIndex = 18;
+            this.lbPlayer2PointsLess.Text = "-";
+            this.lbPlayer2PointsLess.Click += new System.EventHandler(this.lbPlayerPointsLess_Click);
+            // 
             // fGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,15 +230,19 @@
             this.BackgroundImage = global::GuessMelody_.Properties.Resources._0f1872ae8eef2e9e06c32d0e30277ac2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(975, 595);
+            this.Controls.Add(this.lbPlayer2PointsLess);
+            this.Controls.Add(this.lbPlayer2PointsMore);
+            this.Controls.Add(this.lbPlayer1PointsLess);
+            this.Controls.Add(this.tbPlayer2Points);
+            this.Controls.Add(this.tbPlayer1Points);
+            this.Controls.Add(this.tbPlayer2);
+            this.Controls.Add(this.tbPlayer1);
             this.Controls.Add(this.lbSongDuration);
             this.Controls.Add(this.pbGameDuration);
             this.Controls.Add(this.lSongsRemains);
             this.Controls.Add(this.bContinue);
             this.Controls.Add(this.bNextSong);
-            this.Controls.Add(this.lbPlayer2);
-            this.Controls.Add(this.lPlayer1Points);
-            this.Controls.Add(this.lPlayer2Points);
-            this.Controls.Add(this.lbPlayer1);
+            this.Controls.Add(this.lbPlayer1PointsMore);
             this.Controls.Add(this.bPause);
             this.Controls.Add(this.WMP);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -210,15 +265,19 @@
 
         private AxWMPLib.AxWindowsMediaPlayer WMP;
         private System.Windows.Forms.Button bPause;
-        private System.Windows.Forms.Label lbPlayer1;
-        private System.Windows.Forms.Label lPlayer2Points;
-        private System.Windows.Forms.Label lPlayer1Points;
-        private System.Windows.Forms.Label lbPlayer2;
+        private System.Windows.Forms.Label lbPlayer1PointsMore;
         private System.Windows.Forms.Button bNextSong;
         private System.Windows.Forms.Button bContinue;
         private System.Windows.Forms.Label lSongsRemains;
         private System.Windows.Forms.ProgressBar pbGameDuration;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lbSongDuration;
+        private System.Windows.Forms.TextBox tbPlayer1;
+        private System.Windows.Forms.TextBox tbPlayer2;
+        private System.Windows.Forms.TextBox tbPlayer1Points;
+        private System.Windows.Forms.TextBox tbPlayer2Points;
+        private System.Windows.Forms.Label lbPlayer1PointsLess;
+        private System.Windows.Forms.Label lbPlayer2PointsMore;
+        private System.Windows.Forms.Label lbPlayer2PointsLess;
     }
 }
