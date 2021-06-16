@@ -46,6 +46,7 @@ namespace GuessMelody_
             GuessMelody.scanInnerDirectories = cbInnerFolders.Checked;
             GuessMelody.voicePlayerName = cbPlayerNameVoice.Checked;
             GuessMelody.bonusForAnswers = cbBonusForAnswers.Checked;
+            GuessMelody.reducePoints = cbReducePoints.Checked;
 
             GuessMelody.songs.Clear();
             GuessMelody.songs.AddRange(lbSongs.Items.Cast<string>());
@@ -85,6 +86,7 @@ namespace GuessMelody_
             cbInnerFolders.Checked = GuessMelody.scanInnerDirectories;
             cbPlayerNameVoice.Checked = GuessMelody.voicePlayerName;
             cbBonusForAnswers.Checked = GuessMelody.bonusForAnswers;
+            cbReducePoints.Checked = GuessMelody.reducePoints;
 
             lbSongs.Items.Clear();
             lbSongs.Items.AddRange(GuessMelody.songs.ToArray());

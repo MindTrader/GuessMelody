@@ -49,6 +49,7 @@ namespace GuessMelody_
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbPlayerNameVoice = new System.Windows.Forms.CheckBox();
             this.cbBonusForAnswers = new System.Windows.Forms.CheckBox();
+            this.cbReducePoints = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -93,18 +94,18 @@ namespace GuessMelody_
             // 
             this.cbInnerFolders.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cbInnerFolders.AutoSize = true;
-            this.cbInnerFolders.Location = new System.Drawing.Point(235, 348);
+            this.cbInnerFolders.Location = new System.Drawing.Point(10, 316);
             this.cbInnerFolders.Name = "cbInnerFolders";
-            this.cbInnerFolders.Size = new System.Drawing.Size(176, 17);
+            this.cbInnerFolders.Size = new System.Drawing.Size(217, 17);
             this.cbInnerFolders.TabIndex = 3;
-            this.cbInnerFolders.Text = "Искать во внутренних папках";
+            this.cbInnerFolders.Text = "Искать музыку во внутренних папках";
             this.cbInnerFolders.UseVisualStyleBackColor = true;
             // 
             // cbRandomStart
             // 
             this.cbRandomStart.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cbRandomStart.AutoSize = true;
-            this.cbRandomStart.Location = new System.Drawing.Point(235, 428);
+            this.cbRandomStart.Location = new System.Drawing.Point(235, 413);
             this.cbRandomStart.Name = "cbRandomStart";
             this.cbRandomStart.Size = new System.Drawing.Size(171, 17);
             this.cbRandomStart.TabIndex = 4;
@@ -261,7 +262,7 @@ namespace GuessMelody_
             // 
             this.cbPlayerNameVoice.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cbPlayerNameVoice.AutoSize = true;
-            this.cbPlayerNameVoice.Location = new System.Drawing.Point(235, 408);
+            this.cbPlayerNameVoice.Location = new System.Drawing.Point(235, 393);
             this.cbPlayerNameVoice.Name = "cbPlayerNameVoice";
             this.cbPlayerNameVoice.Size = new System.Drawing.Size(173, 17);
             this.cbPlayerNameVoice.TabIndex = 12;
@@ -272,18 +273,30 @@ namespace GuessMelody_
             // 
             this.cbBonusForAnswers.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cbBonusForAnswers.AutoSize = true;
-            this.cbBonusForAnswers.Location = new System.Drawing.Point(235, 388);
+            this.cbBonusForAnswers.Location = new System.Drawing.Point(235, 373);
             this.cbBonusForAnswers.Name = "cbBonusForAnswers";
             this.cbBonusForAnswers.Size = new System.Drawing.Size(156, 17);
             this.cbBonusForAnswers.TabIndex = 13;
             this.cbBonusForAnswers.Text = "Бонус за 3 ответа подряд";
             this.cbBonusForAnswers.UseVisualStyleBackColor = true;
             // 
+            // cbReducePoints
+            // 
+            this.cbReducePoints.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cbReducePoints.AutoSize = true;
+            this.cbReducePoints.Location = new System.Drawing.Point(235, 433);
+            this.cbReducePoints.Name = "cbReducePoints";
+            this.cbReducePoints.Size = new System.Drawing.Size(210, 17);
+            this.cbReducePoints.TabIndex = 14;
+            this.cbReducePoints.Text = "Отнимать баллы за неверный ответ";
+            this.cbReducePoints.UseVisualStyleBackColor = true;
+            // 
             // fSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 486);
+            this.Controls.Add(this.cbReducePoints);
             this.Controls.Add(this.cbBonusForAnswers);
             this.Controls.Add(this.cbPlayerNameVoice);
             this.Controls.Add(this.groupBox2);
@@ -331,5 +344,6 @@ namespace GuessMelody_
         private GroupBox groupBox2;
         private CheckBox cbPlayerNameVoice;
         private CheckBox cbBonusForAnswers;
+        private CheckBox cbReducePoints;
     }
 }

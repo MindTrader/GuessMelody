@@ -169,12 +169,11 @@ namespace GuessMelody_
         private void SetPoints(string playerName, TextBox points)
         {
             fMessage mes = new fMessage(playerName);
+            int pointsNum = Convert.ToInt32(points.Text);
 
             PauseGame();
             if (mes.ShowDialog() == DialogResult.Yes)
             {
-                int pointsNum = Convert.ToInt32(points.Text);
-
                 points.Text = (++pointsNum).ToString();
 
                 if (GuessMelody.bonusForAnswers)
@@ -210,6 +209,9 @@ namespace GuessMelody_
                     successfulAnswersPl1 = 0;
                 else
                     successfulAnswersPl2 = 0;
+
+                if (GuessMelody.reducePoints && pointsNum > 0)
+                    points.Text = (--pointsNum).ToString();
 
                 ContinueGame();
             }
