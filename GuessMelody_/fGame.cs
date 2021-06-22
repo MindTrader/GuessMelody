@@ -81,6 +81,11 @@ namespace GuessMelody_
 
         private void MakeMusic()
         {
+            player1Answered = false;
+            player2Answered = false;
+            tbPlayer1Ready.BackColor = Color.FromArgb(0, 192, 0);
+            tbPlayer2Ready.BackColor = Color.FromArgb(0, 192, 0);
+
             if (GuessMelody.songs.Count == 0)
             {
                 MessageBox.Show("Вы прослушали все песни\n\nВыберите другую папку с музыкой, иначе вы продолжите прослушивание прошлых треков");
@@ -204,11 +209,6 @@ namespace GuessMelody_
                 }
 
                 MakeMusic();
-
-                player1Answered = false;
-                player2Answered = false;
-                tbPlayer1Ready.BackColor = Color.FromArgb(0, 192, 0);
-                tbPlayer2Ready.BackColor = Color.FromArgb(0, 192, 0);
             }
             else
             {
@@ -220,7 +220,13 @@ namespace GuessMelody_
                 if (GuessMelody.reducePoints && pointsNum > 0)
                     points.Text = (--pointsNum).ToString();
 
-                ContinueGame();
+                if (GuessMelody.answerWasShown)
+                {
+                    GuessMelody.answerWasShown = false;
+                    MakeMusic();
+                }
+                else
+                    ContinueGame();
             }
         }
 

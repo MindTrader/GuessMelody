@@ -51,6 +51,7 @@ namespace GuessMelody_
             if (e.KeyData == Keys.Space)
             {
                 tbAnswer.Text = GuessMelody.answer;
+                GuessMelody.answerWasShown = true;
             }
         }
     }

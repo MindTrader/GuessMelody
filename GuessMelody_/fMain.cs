@@ -44,7 +44,7 @@ namespace GuessMelody_
         {
             GuessMelody.ReadParams();
 
-            if (!GuessMelody.instructionWasShown)
+            if (GuessMelody.needFAQ)
             {
                 faq.ShowDialog();
             }
